@@ -7,12 +7,16 @@ This repository documents my journey of learning **React**, exploring its core c
 
 ## React JS Few Basic and Essential Terminology
 
-# 1. Babel :-
-- Converts modern JavaScript (ES6+, JSX, TypeScript) into older JavaScript that browsers can understand.
+# 1. Babel ( Conversion of JSX into JS ):-
+- **Converts modern JavaScript (ES6+, JSX, TypeScript) into older JavaScript that browsers can understand**
 - Allows you to write JSX in React, which browsers cannot natively run.
-- <h4> Hello </h4> → React.createElement("h1", null, "Hello")
+- <h8> Hello </h8> → React.createElement("h1", null, "Hello")
+- with help of CreateElement it actually converts the JSX which is not readable by react to the JS format..
+A tool that converts modern JavaScript (ES6+, JSX) into older JavaScript that browsers can understand.
 
-# 2. Fiber :-
+Why it’s used in React: **Browsers can’t run JSX directly. Babel compiles it**
+
+# 2. Fiber ( Core Engine inside React that controls how and when UI updates happen.):-
 - React Fiber is the Re-Implementation of React’s core rendering engine (the “reconciler”) introduced in React 16
 - The Fiber is mainly used for the rendering as per Re-implementation of the js formate.
 - The UI was different earlier with ES-16 now the Implementation is based on FIBER...
@@ -22,7 +26,7 @@ This repository documents my journey of learning **React**, exploring its core c
 - Blocking updates:- Large component trees could block the browser, causing lag.
 - No priority system:- All updates were treated equally — no way to prioritize urgent updates (like animations).
 
-# 3. Hydration
+# 3. Hydration ( Attaching React’s event listeners and state to already rendered HTML from the server )
 
 - Hydration is the process in which React takes over HTML content that was rendered on the server (Server-Side Rendered HTML) and attaches event listeners and state to make it fully interactive on the client side.
 - It is mostly used in Server-Side Rendering (SSR) frameworks like Next.js.
@@ -33,9 +37,7 @@ This repository documents my journey of learning **React**, exploring its core c
 3. Hydration allows React to “activate” the server-rendered HTML so the page behaves like a normal React app.
 </Br>
 
-# 4. Virtual DOM
- 
- **The Virtual DOM (VDOM) is a lightweight, in-memory representation of the real DOM in the browser**
+# 4. Virtual DOM ( lightweight copy of the real DOM stored in memory for Faster and Smooth UI )
  
 React uses it to efficiently update the UI.
 
@@ -64,12 +66,14 @@ React solves this by:
 - Project Structuring and Best Practices  
 
 ##  Tools & Setup
+
 - React  
 - Vite (for fast development and bundling)  
 - Node.js  
 - Git & GitHub  
 
 ## Goals
+
 - Build a strong foundation in React  
 - Understand how modern frontend apps work  
 - Create small projects to apply every concept  
