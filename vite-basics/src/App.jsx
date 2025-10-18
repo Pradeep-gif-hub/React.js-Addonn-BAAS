@@ -38,6 +38,9 @@ function App() {
       count++;
     }
     setCount(count)
+    setCount(count)
+    //setCount(count=>count+1)-- this will print so like +2 awill
+    // be increamentesd as count se ek bdha and count+1 se ek bdha...
 
   }
   const removeValue=()=>{

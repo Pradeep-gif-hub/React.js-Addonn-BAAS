@@ -21,6 +21,7 @@ Why it’s used in React: **Browsers can’t run JSX directly. Babel compiles it
 - The Fiber is mainly used for the rendering as per Re-implementation of the js formate.
 - The UI was different earlier with ES-16 now the Implementation is based on FIBER...
 - The order is mainly used which to render first in **UI on live server** .
+- sends things as info in form of **PATCHES**
 
 - Before Fiber, React used the stack-based reconciliation (recursive updates).
 - Blocking updates:- Large component trees could block the browser, causing lag.
