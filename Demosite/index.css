@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'StrangerThings';
+  src: url('./assets/fonts/font.OTF') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font{
+  font-family: 'StrangerThings', serif;
+}
+
+.stroked-text {
+  font-family: 'StrangerThings', sans-serif;
+  -webkit-text-stroke: 2px #CD2404;
+}
+
+.stroked-text-light{
+  font-family: 'StrangerThings', sans-serif;
+  -webkit-text-stroke: 1px #CD2404;
+}
+
+.fog{
+  border-radius: 100%;
+  opacity: 0.34;
+  background: radial-gradient(50% 50% at 50% 50%, #FF1515 0%, rgba(0, 0, 0, 0.00) 100%);
+  filter: blur(163.10000610351562px);
+}
+
+@import "tailwindcss";
