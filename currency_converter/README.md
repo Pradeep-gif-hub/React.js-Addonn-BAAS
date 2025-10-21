@@ -12,6 +12,11 @@ and these api call is fetched through resolve reject as well as fetch and the fo
 - the hooks folder is containign this with exported fucnion useCurrecny...
 - with the help of use Currecy from hooks ( as the country currency all amount is displayed in all countrys currency format) and use it in  our landipage where the actual  conversion is taking place.
 
+```link
+https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/gbp.json
+
+```
+
 # FLOW OF EXECUTION OF CONVERSION...
 
 - The hooks **useState adn useEffect** is imported from react and assigned there value, setValues respectilvy.. 
