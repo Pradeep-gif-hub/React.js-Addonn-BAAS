@@ -21,6 +21,12 @@ and these api call is fetched through resolve reject as well as fetch and the fo
 
 - The conversion buttoon is having **Onclick()** feature and the conersin works as amount ( quantity) is multiplied to the rate of the Currency....
 
+```link
+
+https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/gbp.json
+
+```
+
 
 ## ISSUES / AREAS TO IMPROVEMENT
 
