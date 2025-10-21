@@ -1,16 +1,33 @@
-# React + Vite
+# CURRENCY CONVERTER
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- The HOOKS are specials fucntions that let us "HOOK INTO " **REACT** features in fucndamental components like State management, side effects, context etc. without usign the class COMPONENT...
 
-Currently, two official plugins are available:
+- Here i am fetchign the data from the api 
+``` link 
+https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+and these api call is fetched through resolve reject as well as fetch and the format is string hence we convert it to the OBJECT NOTATION FORMATE hence called the fucntion **json** rather called as **JS OBJECT NOTATION**..
 
-## React Compiler
+- the hooks folder is containign this with exported fucnion useCurrecny...
+- with the help of use Currecy from hooks ( as the country currency all amount is displayed in all countrys currency format) and use it in  our landipage where the actual  conversion is taking place.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# FLOW OF EXECUTION OF CONVERSION...
 
-## Expanding the ESLint configuration
+- The hooks **useState adn useEffect** is imported from react and assigned there value, setValues respectilvy.. 
+- The input form takes the value as number as **AMOUNT** and to form has the **To** to be cahneged as...
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- THE **SWAP** BUTTON is very simple as inter-conversuion (swapping) with from assigned to To and TO assigned to Form as of **Onclick** feature...
+
+- The conversion buttoon is having **Onclick()** feature and the conersin works as amount ( quantity) is multiplied to the rate of the Currency....
+
+
+## ISSUES / AREAS TO IMPROVEMENT
+
+- UI STILL CAN BE IMPROVED MUCHH BETTER
+- The responsiveness can be adjusted
+- Some better effect along with features like flags adn coins can be implemented too...
+
+# Hope U enjoyed my Project
+
+
