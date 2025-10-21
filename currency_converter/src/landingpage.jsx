@@ -1,68 +1,77 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import useCurrency from "./hooks/useCurrency.js"; // we fecthed the rates from hook 
 
-const LandingPage = () => {
-  const [fromCurrency, setFromCurrency] = useState("USD");
-  const [toCurrency, setToCurrency] = useState("INR");
-  const [amount, setAmount] = useState("");
+function LandingPage(currency) {
+  const [from, setFrom] = useState("usd");
+  const [to, setTo] = useState("inr");
+  const [amount, setAmount] = useState(1);
+  const [result, setResult] = useState(null);
+  const [currencyList, setCurrencyList] = useState([]);
 
-  const handleSwap = () => {
-    const temp = fromCurrency;
-    setFromCurrency(toCurrency);
-    setToCurrency(temp);
+  // all curecny from api
+  useEffect(() => {
+    fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json")
+      .then((res) => res.json())
+      .then((data) => setCurrencyList(Object.keys(data)))// all currency as key fecthed from api
+      .catch((err) => console.error("Error fetching currencies:", err));
+  }, [currency]);
+
+  // fetching conversion rates using your hook
+  const data = useCurrency(from);
+  const rate = data[to];
+
+  const handleConvert = () => {
+    if(rate) setResult((amount*rate).toFixed(2));
   };
 
+  const handleSwap = () => {
+    setFrom(to);
+    setTo(from);
+    setResult(null);
+  };
   return (
     <div
       style={{
-        minHeight: "400vh",
-        background: "linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%)",
+        minHeight: "100vh",
+        width: "100wh",
+        height: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        background: "linear-gradient(135deg, #0077ff, #00d4ff)",
         fontFamily: "Poppins, sans-serif",
       }}
     >
       <div
         style={{
-          backgroundColor: "#fff",
-          padding: "2rem",
-          borderRadius: "20px",
-          boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
-          width: "350px",
+          background: "#fff",
+          padding: "30px 40px",
+          borderRadius: "16px",
+          boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
+          width: "380px",
           textAlign: "center",
         }}
       >
-        <h2 style={{ marginBottom: "1rem", color: "#333" }}>
-          💱 Currency Converter
-        </h2>
+        <h2 style={{ marginBottom: "20px", color: "#333" }}> Currency Converter</h2>
 
-        <div style={{ marginBottom: "1rem" }}>
-          <input
-            type="number"
-            placeholder="Enter amount"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
-              fontSize: "16px",
-            }}
-          />
-        </div>
-
-        <div
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Enter amount"
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "1rem",
+            width: "100%",
+            padding: "10px",
+            border: "1px solid #ccc",
+            borderRadius: "8px",
+            marginBottom: "15px",
           }}
-        >
+        />
+
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <select
-            value={fromCurrency}
-            onChange={(e) => setFromCurrency(e.target.value)}
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
             style={{
               width: "45%",
               padding: "10px",
@@ -70,32 +79,31 @@ const LandingPage = () => {
               border: "1px solid #ccc",
             }}
           >
-            <option>USD</option>
-            <option>EUR</option>
-            <option>INR</option>
-            <option>GBP</option>
-            <option>JPY</option>
+            {currencyList.map((cur) => (
+              <option key={cur} value={cur}>
+                {cur.toUpperCase()}
+              </option>
+            ))}
           </select>
 
           <button
             onClick={handleSwap}
             style={{
-              backgroundColor: "#74b9ff",
               border: "none",
-              borderRadius: "50%",
+              background: "#0077ff",
               color: "#fff",
-              width: "35px",
-              height: "35px",
+              borderRadius: "50%",
+              padding: "5px 10px",
               cursor: "pointer",
               fontSize: "18px",
             }}
           >
-            ↔
+            Swap
           </button>
 
           <select
-            value={toCurrency}
-            onChange={(e) => setToCurrency(e.target.value)}
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
             style={{
               width: "45%",
               padding: "10px",
@@ -103,34 +111,42 @@ const LandingPage = () => {
               border: "1px solid #ccc",
             }}
           >
-            <option>INR</option>
-            <option>USD</option>
-            <option>EUR</option>
-            <option>GBP</option>
-            <option>JPY</option>
+            {currencyList.map((cur) => (
+              <option key={cur} value={cur}>
+                {cur.toUpperCase()}
+              </option>
+            ))}
           </select>
         </div>
 
         <button
+          onClick={handleConvert}
           style={{
+            marginTop: "20px",
             width: "100%",
             padding: "10px",
-            backgroundColor: "#00cec9",
-            color: "#fff",
             border: "none",
             borderRadius: "8px",
-            fontSize: "16px",
+            background: "#0077ff",
+            color: "#fff",
             cursor: "pointer",
+            fontSize: "16px",
             transition: "0.3s",
           }}
-          onMouseOver={(e) => (e.target.style.backgroundColor = "#0984e3")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#00cec9")}
         >
           Convert
         </button>
+
+        {result && (
+          <h3 style={{ marginTop: "20px", color: "#333" }}>
+            {amount} {from.toUpperCase()} ={" "}
+            <span style={{ color: "#0077ff" }}>
+              {result} {to.toUpperCase()}
+            </span>
+          </h3>
+        )}
       </div>
     </div>
   );
-};
-
+}
 export default LandingPage;
