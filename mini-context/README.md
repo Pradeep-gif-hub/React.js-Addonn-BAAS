@@ -36,5 +36,8 @@ The ClassName is changes as per the function and accordingly the setTheme throug
 
 3. Language or localization setting.
 
-4. Shopping cart in an online store.
+4. Shopping cart in an online store. 
+
+```
+# Preparing Myself to use it in Larger Application whenever in need
 
