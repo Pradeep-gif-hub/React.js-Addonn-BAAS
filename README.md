@@ -80,6 +80,6 @@ React solves this by:
 - Create small projects to apply every concept  
 - Eventually build full-fledged applications  
 
-##  Repository Structure
+
 
 
