@@ -7,7 +7,7 @@ This repository documents my journey of learning **React**, exploring its core c
 
 ## React JS Few Basic and Essential Terminology
 
-# 1. Babel ( Conversion of JSX into JS ):-
+# 1. Babel ( Conversion of JSX into JS )  :-
 - **Converts modern JavaScript (ES6+, JSX, TypeScript) into older JavaScript that browsers can understand**
 - Allows you to write JSX in React, which browsers cannot natively run.
 - <h8> Hello </h8> → React.createElement("h1", null, "Hello")
@@ -16,7 +16,7 @@ A tool that converts modern JavaScript (ES6+, JSX) into older JavaScript that br
 
 Why it’s used in React: **Browsers can’t run JSX directly. Babel compiles it**
 
-# 2. Fiber ( Core Engine inside React that controls how and when UI updates happen.):-
+# 2. Fiber ( Core Engine inside React that controls how and when UI updates happen ) :-
 - React Fiber is the Re-Implementation of React’s core rendering engine (the “reconciler”) introduced in React 16
 - The Fiber is mainly used for the rendering as per Re-implementation of the js formate.
 - The UI was different earlier with ES-16 now the Implementation is based on FIBER...
