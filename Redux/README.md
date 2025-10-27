@@ -116,5 +116,4 @@ src/
 ```
 ## For Further information visit 
 [Redux-ToolKit ]("https://redux-toolkit.js.org/tutorials/quick-start")
-[W3 SCHOOL](" https://developer.mozilla.org/en-US/docs/Web/JavaScript")
 # Thank You 
